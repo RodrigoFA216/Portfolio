@@ -4,7 +4,9 @@ export default function Document() {
     return (
         <Html lang='es'>
         <Head />
-        <title>Rodrigo's Portfolio</title>
+            <title>Rodrigo's Portfolio</title>
+            <meta name='description' content="Rodrigo Flores's Portfolio website"></meta>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"></link>
         <body>
             <Main />
             <NextScript />
