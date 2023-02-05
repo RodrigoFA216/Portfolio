@@ -49,8 +49,8 @@ const Index=()=>{
                                     {
                                         languajes.map((lang, i) => (
                                             <>
-                                                <li className='list-group-item bg-light'>
-                                                    <div className='d-flex' key={i}>
+                                                <li className='list-group-item bg-light' key={i}>
+                                                    <div className='d-flex'>
                                                         <img src={lang.source} className='card-img-top img-fluid rounded m-2' style={{maxWidth: '15%'}}></img>
                                                         <h6 className='align-self-center'>
                                                             {lang.name}
