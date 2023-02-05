@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Navbar=()=> {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
                 <div className="container-fluid container">
                     <div className='d-flex justify-content-start'>
                         <Link href="/" className="navbar-brand">
