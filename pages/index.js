@@ -92,6 +92,30 @@ const Index=()=>{
                                         ))
                                     }
                                 </ul>
+                                <Link href="/competencias" className='btn btn-info mt-3'>Conoce más acerca de mi</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Tercera sección */}
+                <div className='row'>
+                    <div className='col-md-12'>
+                        <div className='card card-body bg-dark'>
+                            <div className='row'>
+                                <div className='col-md-12'>
+                                    <h1 className='text-center text-light'>Portfolio</h1>
+                                </div>
+                                {/* hay que reemplazar esto por un for que itera un arreglo desde un fetch */}
+                                <div className='col-md-4'>
+                                    <div className='card bg-light border-primary m-2'>
+                                        <img src='' alt='something important'/>
+                                        <div className='card-body'>
+                                            <h5 className='card-title'>Something</h5>
+                                            <p>Something</p>
+                                            <Link href="/portfolio" className='btn btn-outline-success'>Conoce más</Link>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
