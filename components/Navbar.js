@@ -1,7 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 
-const Navbar=()=> {
+const Navbar=(props)=> {
+    // object named props.projects
+    const projects = props.projects
+    console.log(projects);
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
@@ -31,10 +34,17 @@ const Navbar=()=> {
                                 </Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle disabled" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     Projects
                                 </Link>
                                 <div className="dropdown-menu">
+                                    {/* {
+                                        props.projects.map(project=>(
+                                            <Link href={`/projects/${project.id}`} key={project.id}>
+                                                <a className="dropdown-item">{project.title}</a>
+                                            </Link>
+                                        ))
+                                    } */}
                                     <a className="dropdown-item" href="#">Action</a>
                                     <a className="dropdown-item" href="#">Another action</a>
                                     <a className="dropdown-item" href="#">Something else here</a>
@@ -53,6 +63,17 @@ const Navbar=()=> {
             </nav>
         </>
     )
+}
+
+Navbar.getInitialProps = async (ctx) => {
+    try {
+        const res=await fetch('https://drfsimplecrud-test-2h2u.onrender.com/api/projects/')
+        const resJSON= await res.json()
+        // console.log(resJSON);
+        return { projects: resJSON.data}
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export default Navbar

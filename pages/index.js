@@ -3,13 +3,14 @@ import Link from 'next/link'
 import React from'react'
 import {languajes, frontEnds, backEnds, databases, devOps, experiences} from '../profile'
 
-const Index=()=>{
+const Index=(props)=>{
+    //console.log(props.projects);
     return(
         <>
             <Layout>
                 {/* Botón de descarga de el CV en pdf (necesita reparación) */}
                 <div className="d-grid gap-2">
-                    <a className="btn btn-primary" href='../media/CV HOJA DE VIDA.pdf' download target='_blank'> <i class="bi bi-download"></i>  Download PDF</a>
+                    <a className="btn btn-primary" href='../media/CV HOJA DE VIDA.pdf' download target='_blank'> <i className="bi bi-download"></i>  Download PDF</a>
                 </div>
                 <br></br>
                 {/* Card Header */}
@@ -25,10 +26,10 @@ const Index=()=>{
                                     <h3 className="card-subtitle">Fullstack Web Developer</h3>
                                     <br></br>
                                     <h6 className="card-text">
-                                    Soy un ingeniero en computación con 6 años de experiencia en el desarrollo de software y la resolución de problemas técnicos. Con un fuerte conocimiento en <b>C/C++, HTML/CSS, Javascript, Typescript, Python, Rust, Arduino y Matlab</b>; he tenido la oportunidad de trabajar en proyectos innovadores y desafiantes en mi carrera como <b>la edición de el libro "Guía didáctica de robótica educativa con Arduino. Aplicaciones para bachillerato"</b> y mi desempeño para Sinteg en México como Ingeniero Técnico de planta para el mantenimiento del Museo Nacional de Antropología. Me considero una persona proactiva y con habilidades de liderazgo, y siempre estoy buscando nuevos retos y oportunidades para mejorar mis habilidades y contribuir al éxito de mi equipo y empresa.
+                                        Soy un ingeniero en computación con 6 años de experiencia en el desarrollo de software y la resolución de problemas técnicos. Con un fuerte conocimiento en <b>C/C++, HTML/CSS, Javascript, Typescript, Python, Rust, Arduino y Matlab</b>; he tenido la oportunidad de trabajar en proyectos innovadores y desafiantes en mi carrera como <b>la edición de el libro "Guía didáctica de robótica educativa con Arduino. Aplicaciones para bachillerato"</b> y mi desempeño para Sinteg en México como Ingeniero Técnico de planta para el mantenimiento del Museo Nacional de Antropología. Me considero una persona proactiva y con habilidades de liderazgo, y siempre estoy buscando nuevos retos y oportunidades para mejorar mis habilidades y contribuir al éxito de mi equipo y empresa.
                                     </h6>
-                                    <Link href="https://wa.me/5544722244?text=Hola,%20vi%20tu%20CV%20online" target="_blank" class="btn btn-primary"> <i class="bi bi-whatsapp"></i> WhatsApp me</Link>
-                                    <Link href="/hireme"class="btn btn-primary m-2">Hire me</Link>
+                                    <Link href="https://wa.me/5544722244?text=Hola,%20vi%20tu%20CV%20online" target="_blank" className="btn btn-primary"> <i className="bi bi-whatsapp"></i> WhatsApp me</Link>
+                                    <Link href="/hireme" className="btn btn-primary m-2">Hire me</Link>
                                 </div>
                             </div>
                         </card>
@@ -123,6 +124,13 @@ const Index=()=>{
             </Layout>
         </>
     )
+}
+
+Index.getInitialProps=async (ctx)=>{
+    const res=await fetch('https://drfsimplecrud-test-2h2u.onrender.com/api/projects/')
+    const resJSON= await res.json()
+    // console.log(resJSON);
+    return { projects: resJSON}
 }
 
 export default Index
